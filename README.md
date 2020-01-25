@@ -1,1 +1,2 @@
 # MegakrankesGame
+ihr stinkt alle
