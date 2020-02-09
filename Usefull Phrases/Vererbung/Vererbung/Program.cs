@@ -75,6 +75,7 @@ namespace Vererbung
         {
             Console.WriteLine("Achja, außer Sterben wenn es auf dem Rücken liegt, ja moiiin");
         }
+        public int MyProperty { get; set; }
 
     }
 }
