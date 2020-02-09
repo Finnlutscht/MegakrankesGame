@@ -9,6 +9,15 @@ namespace _1DArray
             //-------------1D-ARRAY-------------------------------------------------------------------------------------------------------------------------
             //n Array halt :)
 
+
+            int[] ka 
+                new int[2];
+
+            ka[0] = 12;
+            ka[1] = 3;
+            Console.WriteLine(ka[0]);
+            Console.ReadKey();
+
             string[] namenListe = new string[3];
 
             namenListe[0] = "Finn";
