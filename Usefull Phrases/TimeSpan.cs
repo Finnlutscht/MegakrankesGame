@@ -52,19 +52,32 @@ namespace Testitest
             Laufer Maexchen = new Laufer(21.58);
             Laufer Finn = new Laufer(17.91);
 
-            List<double> Zeitenliste = new List<double>();
+            List<double> ZeitenListe = new List<double>();
 
-            Zeitenliste.Add(JuJu.LaufZeit);
-            Zeitenliste.Add(Maexchen.LaufZeit);
-            Zeitenliste.Add(Finn.LaufZeit);
+            ZeitenListe.Add(JuJu.LaufZeit);
+            ZeitenListe.Add(Maexchen.LaufZeit);
+            ZeitenListe.Add(Finn.LaufZeit);
 
 
+            ZeitenListe.Reverse();
 
-            foreach (double LaufZeit in Zeitenliste)
+            foreach (double LaufZeit in ZeitenListe)
             {
                 Console.WriteLine(LaufZeit);
             }
 
+            List<int> Test = new List<int>() { 1, 4, 2, 5, 4, 64, 7, 4, 2 };
+            foreach (int numbers in Test)
+            {
+                Console.WriteLine(Test);
+            }
+
+            numbers.Sort();
+
+            foreach (int numbers in Test)
+            {
+                Console.WriteLine(Test);
+            }
 
         }
     }
