@@ -68,7 +68,18 @@ namespace Testitest
 
         }
     }
-    
+    class Laufer
+    {
+        public double LaufZeit { get; set; }
+
+        public Laufer(double pLaufZeit)
+        {
+            LaufZeit = pLaufZeit;
+
+        }
+
+    }
+
 
 
 
