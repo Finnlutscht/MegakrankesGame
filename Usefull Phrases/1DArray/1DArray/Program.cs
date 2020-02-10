@@ -10,8 +10,7 @@ namespace _1DArray
             //n Array halt :)
 
 
-            int[] ka 
-                new int[2];
+            int[] ka = new int[2];
 
             ka[0] = 12;
             ka[1] = 3;
