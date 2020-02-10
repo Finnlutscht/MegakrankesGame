@@ -23,9 +23,8 @@ namespace _2DArray
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(produktListe[i, 0, 0]);
-                Console.WriteLine(produktListe[i, 1, 0]);
-                Console.WriteLine(produktListe[i, 1, 1]);
+                Console.WriteLine(produktListe[i, 0, ]);
+                Console.WriteLine(produktListe[i, 1, ]);
 
             }
             Console.ReadKey();
