@@ -11,7 +11,7 @@ namespace Enumaratoren
             switch (tag)
             {
                 case Wochentage.Montag:
-                    Console.WriteLine("Montag");
+                    Console.WriteLine(1);
                     break;
 
                 case Wochentage.Dienstag:
