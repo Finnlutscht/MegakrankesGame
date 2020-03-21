@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed = 10;
 
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
+    public bool stillstand = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
+        if ( Vector2 (0.0f,0.0f))
+        { 
+            stillstand = true;
+        }
     }
 
     void FixedUpdate()
