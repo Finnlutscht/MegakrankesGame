@@ -6,6 +6,7 @@ public class EnemyFollow : MonoBehaviour
 {
     public float speed;
     public float stoppingDistance;
+    
 
     private Transform target;
     // Start is called before the first frame update
@@ -15,11 +16,12 @@ public class EnemyFollow : MonoBehaviour
     }
     //transform.position = Vector2.MoveTowards(from,to,speed);----------------------------------
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            
         }
     }
 }

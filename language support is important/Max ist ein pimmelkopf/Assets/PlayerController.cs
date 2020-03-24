@@ -20,10 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
-        if ( Vector2 (0.0f,0.0f))
-        { 
-            stillstand = true;
-        }
+       
     }
 
     void FixedUpdate()

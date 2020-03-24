@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class Schießen : MonoBehaviour
 {
-    public PlayerController controller;
-    public Transform target;
+    public float damage = 100;
+    private Transform target;
+    public float arrowspeed = 10;
+    public bool schießen = false;
+    private Vector2 moveVelocity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
     }
-
+    //transform.position = Vector2.MoveTowards(from,to,speed);----------------------------------
     // Update is called once per frame
     void Update()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
-        if (moveVelocity == 0)
+      
+
+       
+    }
+    void FixedUpdate()
+    {
+        if (Input.GetAxis("Fire1") == 1 && schießen == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            
+            schießen = true;
+
+        }
+       
+        if (schießen == true)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, arrowspeed * Time.deltaTime);
+
         }
     }
 }
+
 

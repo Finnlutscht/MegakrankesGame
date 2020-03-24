@@ -15,7 +15,7 @@ public class ArrowFollow : MonoBehaviour
     }
     //transform.position = Vector2.MoveTowards(from,to,speed);----------------------------------
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {

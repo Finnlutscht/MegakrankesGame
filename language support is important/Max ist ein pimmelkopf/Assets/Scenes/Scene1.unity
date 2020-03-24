@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 979288952}
   - component: {fileID: 979288951}
   - component: {fileID: 979288950}
+  - component: {fileID: 979288955}
   m_Layer: 0
   m_Name: Me
   m_TagString: Player
@@ -720,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  stillstand: 0
 --- !u!50 &979288951
 Rigidbody2D:
   serializedVersion: 4
@@ -802,6 +804,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979288955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979288949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a566a623d30d40e4ea21fd6014bfd07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  leben: 1000
+  timerzahl: 0
+  direktdaneben: 0
 --- !u!1 &1099947154
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +833,7 @@ GameObject:
   - component: {fileID: 1099947157}
   - component: {fileID: 1099947156}
   - component: {fileID: 1099947155}
+  - component: {fileID: 1099947160}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -835,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  stoppingDistance: 2
+  stoppingDistance: 0
 --- !u!65 &1099947156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -904,12 +923,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099947154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -6.392, z: -61.250977}
+  m_LocalPosition: {x: -0.09, y: -5.19, z: -61.250977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099947160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099947154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b742dd7aebc446a7cd439e662b40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leben: 0
+  arrow: {fileID: 1927733956}
 --- !u!1 &1803407428
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1026,7 @@ GameObject:
   - component: {fileID: 1927733962}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,7 +1100,7 @@ Transform:
   m_GameObject: {fileID: 1927733956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: 2.3, z: 0}
-  m_LocalScale: {x: 0.0437, y: 0.1767, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1098,3 +1131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09616f49879f4cd42a8c7505179f99d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
+  arrowspeed: 35
+  "schie\xDFen": 0
