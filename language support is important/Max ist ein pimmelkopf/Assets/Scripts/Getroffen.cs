@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Getroffen : MonoBehaviour
+public class Abgeschossen : MonoBehaviour
 {
     public float leben;
     private Transform target;
@@ -26,13 +26,9 @@ public class Getroffen : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, target.position) < 0.5 && renderer.material.color == Color.red)
+        if (Vector2.Distance(transform.position, target.position) < 0.5)
         {
             renderer.material.color = Color.blue;
-        }
-        else if (Vector2.Distance(transform.position, target.position) < 0.5 && renderer.material.color == Color.blue)
-        {
-            renderer.material.color = Color.red;
         }
     }
 }
