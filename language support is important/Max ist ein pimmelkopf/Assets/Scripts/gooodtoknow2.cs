@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class gooodtoknow : MonoBehaviour
 {
+    //public LevelMaganger myLevelManager;
+    //-----------------------------
+    //LevelMaganger myLevelManager;
+    //myLevelManager = GameObject.Find("LevelManager).GetComponent<LevelManager>();
+
+    //------------------------------------------------------
     private Transform target;
     private GameObject player;
     private MeshRenderer renderer;
