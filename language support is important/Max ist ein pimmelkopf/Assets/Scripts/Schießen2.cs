@@ -35,13 +35,16 @@ public class Schießen : MonoBehaviour
         if (schießen == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, arrowspeed * Time.deltaTime);
+            //Vector2 lookVector = target.position - transform.position;
+            //transform.position = Quaternion.LookRotation(lookVector);
+            player.playerstats2.damage = 4;
         }
 
         if (Vector2.Distance(transform.position, target.position) == 0)
         {
             schießen = false;
-            transform.position = player.transform.position;
-            
+
+            transform.rotation = Quaternion.LookVector(0, 0, 0);
         }
     }
 }
