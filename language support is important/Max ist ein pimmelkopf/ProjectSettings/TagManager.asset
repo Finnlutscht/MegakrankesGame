@@ -9,6 +9,7 @@ TagManager:
   - Arrow
   - Spitze
   - tot
+  - Enemy2
   layers:
   - Default
   - TransparentFX

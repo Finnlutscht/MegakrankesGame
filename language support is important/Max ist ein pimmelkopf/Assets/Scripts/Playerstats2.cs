@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class Playerstats2 : MonoBehaviour
+public class Playerstats2 : MonoBehaviour
 {
-   
-    
+
+
     public float damage = 100;
     public float leben = 1000;
     public int timerzahl = 0;
-    
-
-    public bool direktdaneben = false;
+    public bool unverwundbar = false;
     private Transform target;
     void Start()
     {
@@ -21,21 +19,11 @@ public  class Playerstats2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, target.position) < 0.5 && direktdaneben == false)
-        {
-            leben = leben -100;
-            direktdaneben = true;
-            
-        }
+      
 
-        if (Vector2.Distance(transform.position, target.position) > 1.5)
-        {
-            direktdaneben = false;
-            timerzahl = 0;
-        }
         
-       
+
     }
-    
-    
+
+
 }

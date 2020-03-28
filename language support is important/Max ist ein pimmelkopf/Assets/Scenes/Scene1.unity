@@ -387,8 +387,8 @@ GameObject:
   - component: {fileID: 741134577}
   - component: {fileID: 741134576}
   - component: {fileID: 741134575}
-  - component: {fileID: 741134578}
   - component: {fileID: 741134579}
+  - component: {fileID: 741134578}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -455,7 +455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741134574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4039998, y: 1.945, z: -10}
+  m_LocalPosition: {x: 0.4048, y: 1.945, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playerdub: {fileID: 979288954}
-  offset: {x: 2, y: 2, z: 2}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &741134579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 979288952}
   - component: {fileID: 979288951}
   - component: {fileID: 979288950}
+  - component: {fileID: 979288955}
   - component: {fileID: 979288956}
   m_Layer: 0
   m_Name: Me
@@ -798,12 +799,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979288949}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4039998, y: 1.945, z: 0}
+  m_LocalPosition: {x: 0.4048, y: 1.945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979288955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979288949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec16297e50286e64dab71551afe24a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerzahl: 0
+  unverwundbar: 0
 --- !u!114 &979288956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,7 +834,7 @@ MonoBehaviour:
   damage: 100
   leben: 1000
   timerzahl: 0
-  direktdaneben: 0
+  unverwundbar: 0
 --- !u!1 &1042083151
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,8 +849,9 @@ GameObject:
   - component: {fileID: 1042083154}
   - component: {fileID: 1042083153}
   - component: {fileID: 1042083152}
+  - component: {fileID: 1042083158}
   m_Layer: 0
-  m_Name: Enemy (1)
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,7 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503b742dd7aebc446a7cd439e662b40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "schie\xDFenscript": {fileID: 1927733962}
   leben: 0
 --- !u!114 &1042083153
 MonoBehaviour:
@@ -936,13 +951,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042083151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.15, y: 0.84, z: -61.250977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.76, y: 0.21, z: -61.250977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042083158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042083151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dd5cb1e43d9ae49aae5bad14e7a696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  leben: 0
+  timerzahl: 0
 --- !u!1 &1099947154
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +987,7 @@ GameObject:
   - component: {fileID: 1099947156}
   - component: {fileID: 1099947155}
   - component: {fileID: 1099947160}
+  - component: {fileID: 1099947161}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1046,11 +1077,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099947154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.81, y: 0.24, z: -61.250977}
+  m_LocalPosition: {x: -4.95, y: 0.11, z: -61.250977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1099947160
 MonoBehaviour:
@@ -1064,8 +1095,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503b742dd7aebc446a7cd439e662b40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "schie\xDFenscript": {fileID: 1927733962}
   leben: 0
+--- !u!114 &1099947161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099947154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dd5cb1e43d9ae49aae5bad14e7a696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  leben: 0
+  timerzahl: 0
 --- !u!1 &1471781999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803407428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4039998, y: 1.945, z: -10}
+  m_LocalPosition: {x: 0.4048, y: 1.945, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 902047128}
@@ -1347,6 +1392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  arrowspeed: 60
+  arrowspeed: 80
   "schie\xDFen": 0
   player: {fileID: 979288949}
+  timerzahl: 0
+  feuerrateprosekunde: 3
+  geschossen: 0

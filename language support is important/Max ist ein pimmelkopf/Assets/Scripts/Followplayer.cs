@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Followplayer : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
 
     public Transform Playerdub;

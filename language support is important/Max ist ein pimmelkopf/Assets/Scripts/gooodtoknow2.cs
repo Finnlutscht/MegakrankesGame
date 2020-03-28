@@ -16,10 +16,12 @@ public class gooodtoknow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       // StartCoroutine(waitsec());
+       //----------------------------------
         //renderer = gameObject.GetComponent<MeshRenderer>();
-      //  player = GameObject.Find("Me");
-      //  target = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Transform>();
-      //  renderer.material.color = Color.blue;
+        //  player = GameObject.Find("Me");
+        //  target = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Transform>();
+        //  renderer.material.color = Color.blue;
         //-------------------------------------------------------------------
     }
 
@@ -33,4 +35,11 @@ public class gooodtoknow : MonoBehaviour
         //Vector3 lookVektor = target.position - transform.position;
         //transform.rotation = Quaternion.LookRotation(lookVektor);
     }
+    /*
+    IEnumerator DoSomething()
+    {
+        DoThingOne();
+        yield return new WaitForSeconds(1);
+        DoThingTwo();
+    }*/
 }
