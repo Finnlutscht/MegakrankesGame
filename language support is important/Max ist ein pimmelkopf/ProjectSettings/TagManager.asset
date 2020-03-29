@@ -10,6 +10,7 @@ TagManager:
   - Spitze
   - tot
   - Enemy2
+  - Wand
   layers:
   - Default
   - TransparentFX

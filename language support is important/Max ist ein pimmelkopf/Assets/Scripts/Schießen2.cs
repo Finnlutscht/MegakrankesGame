@@ -12,7 +12,7 @@ public class Schießen2 : MonoBehaviour
     public bool schießen = false;
     public GameObject player;
     public float timerzahl;
-    public float feuerrateprosekunde;
+    public float feuerrateProSekunde;
     public bool geschossen;
     public bool critschaden;
     public int critRateInProzent;
@@ -65,6 +65,7 @@ public class Schießen2 : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
             geschossen = false;
             critschaden = false;
+           // target.hideFlags = HideFlags.HideAndDontSave;
         
         }
 
@@ -73,7 +74,7 @@ public class Schießen2 : MonoBehaviour
     {
         while (timerzahl != 1)
         {
-            yield return new WaitForSeconds(1/ feuerrateprosekunde);
+            yield return new WaitForSeconds(1/ feuerrateProSekunde);
             timerzahl += 1;
         }
     }

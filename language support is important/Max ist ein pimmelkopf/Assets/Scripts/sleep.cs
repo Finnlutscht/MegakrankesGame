@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class sleep : MonoBehaviour
 {
+    private Material ownedMaterial;
+    
     // Start is called before the first frame update
     void Start()
     {
         //GetComponent<Renderer>().material.color = Color.red;
 
         StartCoroutine(waitsec());
+        OnEnable();
+        OnDisable();
     }
 
     // Update is called once per frame
@@ -28,5 +32,15 @@ public class sleep : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = Color.red;
        
+    }
+    void OnEnable()
+    {
+        ownedMaterial = new Material(Shader.Find("Diffuse"));
+        ownedMaterial.hideFlags = HideFlags.HideAndDontSave;
+        GetComponent<Renderer>().sharedMaterial = ownedMaterial;
+    }
+    void OnDisable()
+    {
+        DestroyImmediate(ownedMaterial);
     }
 }
