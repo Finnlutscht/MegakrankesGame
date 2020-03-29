@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Schießen2 : MonoBehaviour
 {
+    private CritRate critratescript;
 
     public float damage;
     private Transform target;
@@ -13,16 +14,20 @@ public class Schießen2 : MonoBehaviour
     public float timerzahl;
     public float feuerrateprosekunde;
     public bool geschossen;
+    public bool critschaden;
+    public int critRateInProzent;
 
 
 
     void Start()
-    { 
+    {
+        critschaden = false;
         timerzahl = 1;
         
         damage = 100;
         target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
         player = GameObject.Find("Me");
+        critratescript = GameObject.Find("Arrow").GetComponent<CritRate>();
     }
     //transform.position = Vector2.MoveTowards(from,to,speed);----------------------------------
     // Update is called once per frame
@@ -39,7 +44,11 @@ public class Schießen2 : MonoBehaviour
             timerzahl = 0;
             StartCoroutine(waitsec());
             geschossen = true;
-            
+            critratescript.zzGenerieren(1,100);
+            if (critratescript.zz < critRateInProzent)
+            {
+                critschaden = true;
+            }
         }
 
         if (schießen == true)
@@ -55,6 +64,7 @@ public class Schießen2 : MonoBehaviour
             transform.position = player.transform.position;
             target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
             geschossen = false;
+            critschaden = false;
         
         }
 

@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 1099947160}
   - component: {fileID: 1099947161}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1284,6 +1284,7 @@ GameObject:
   - component: {fileID: 1927733957}
   - component: {fileID: 1927733961}
   - component: {fileID: 1927733962}
+  - component: {fileID: 1927733963}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -1302,8 +1303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.110599555, y: 1, z: 1}
-  m_Center: {x: -0.4447152, y: 0.0000000015926234, z: 0}
+  m_Size: {x: 1.0010914, y: 1, z: 1}
+  m_Center: {x: 0.00052417465, y: -6.3444996e-12, z: 0}
 --- !u!23 &1927733958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1398,3 +1399,18 @@ MonoBehaviour:
   timerzahl: 0
   feuerrateprosekunde: 3
   geschossen: 0
+  critschaden: 0
+  critRateInProzent: 8
+--- !u!114 &1927733963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927733956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2da685339c5714ba3d2ecedcbe633f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zz: 0

@@ -31,9 +31,13 @@ public class EnemyGetroffen : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, target.position) < 0.5 && schießenscript.geschossen == true)
+        if (Vector2.Distance(transform.position, target.position) < 0.5 && schießenscript.geschossen == true && schießenscript.critschaden == false)
         {
             enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage;
+        }
+        if (Vector2.Distance(transform.position, target.position) < 0.5 && schießenscript.geschossen == true && schießenscript.critschaden == true)
+        {
+            enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage * 3;
         }
     }
 }
