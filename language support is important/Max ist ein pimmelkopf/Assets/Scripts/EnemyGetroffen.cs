@@ -9,6 +9,7 @@ public class EnemyGetroffen : MonoBehaviour
 
     public float leben;
     private Transform target;
+    private Collider target1;
     private GameObject player;
 
 
@@ -20,6 +21,7 @@ public class EnemyGetroffen : MonoBehaviour
 
         player = GameObject.Find("Me");
         target = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Transform>();
+        target1 = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Collider>();
 
 
     }
@@ -35,9 +37,15 @@ public class EnemyGetroffen : MonoBehaviour
         {
             enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage;
         }
+       // OnTriggerEnter(target1);
         if (Vector2.Distance(transform.position, target.position) < 0.5 && schießenscript.geschossen == true && schießenscript.critschaden == true)
         {
-            enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage * 3;
+            enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage * 2;
         }
     }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage;
+       
+    }*/
 }
