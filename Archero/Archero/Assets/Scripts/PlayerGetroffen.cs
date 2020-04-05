@@ -30,7 +30,7 @@ public class PlayerGetroffen : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Vector2.Distance(transform.position, target.position) > 1.5 | timerzahl == 3)
+        if (Vector2.Distance(transform.position, target.position) > 1.5 || timerzahl == 3)
         {
             unverwundbar = false;
             timerzahl = 0;
@@ -41,7 +41,7 @@ public class PlayerGetroffen : MonoBehaviour
    
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "Enemy" && unverwundbar == false)
+        if (col.gameObject.tag == "Enemy" && unverwundbar == false)
         {
             playerstatsscript.leben = playerstatsscript.leben - 100;
             unverwundbar = true;
@@ -61,4 +61,5 @@ public class PlayerGetroffen : MonoBehaviour
       
     }
     
+
 }

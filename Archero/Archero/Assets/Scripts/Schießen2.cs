@@ -16,7 +16,9 @@ public class Schießen2 : MonoBehaviour
     public bool geschossen;
     public bool critschaden;
     public int critRateInProzent;
-
+    private GameObject closestPlayer;
+    private GameObject closest;
+    
 
 
     void Start()
@@ -37,9 +39,11 @@ public class Schießen2 : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
+        closestPlayer = FindClosestEnemy();
+        
         if (Input.GetButton("Fire1") == true && schießen == false && timerzahl == 1)
         {
+            //target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
             schießen = true;
             timerzahl = 0;
             StartCoroutine(waitsec());
@@ -53,21 +57,21 @@ public class Schießen2 : MonoBehaviour
 
         if (schießen == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, arrowspeed * Time.deltaTime);
-            //Vector2 lookVector = target.position - transform.position;
-            //transform.position = Quaternion.LookRotation(lookVector);
+            transform.position = Vector2.MoveTowards(transform.position, closestPlayer.transform.position, arrowspeed * Time.deltaTime);
+           
         }
 
-        if (Vector2.Distance(transform.position, target.position) == 0)
+        if (Vector2.Distance(transform.position, closestPlayer.transform.position) == 0)
         {
             schießen = false;
             transform.position = player.transform.position;
-            target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
+            //target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
             geschossen = false;
             critschaden = false;
-           // target.hideFlags = HideFlags.HideAndDontSave;
+           
         
         }
+        
 
     }
     IEnumerator waitsec()
@@ -79,7 +83,27 @@ public class Schießen2 : MonoBehaviour
         }
     }
 
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        //GameObject closest;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos) {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance) {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
 }
+
+
 
 
 

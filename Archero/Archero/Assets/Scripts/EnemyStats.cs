@@ -6,7 +6,7 @@ public class EnemyStats : MonoBehaviour
 {
     public float damage;
     public float leben;
-    public int timerzahl;
+
 
 
     void Start()
