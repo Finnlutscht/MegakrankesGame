@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Einfachergegner : Enemy
 {
-    public Enemy enemyscript;
     private Schießen2 schießenscript;
 
     // Start is called before the first frame update
