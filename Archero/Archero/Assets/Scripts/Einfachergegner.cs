@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Einfachergegner : Enemy
 {
-    private Schießen2 schießenscript;
+    private Pfeil pfeilscript;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        schießenscript = GameObject.Find("Arrow").GetComponent<Schießen2>();
+        pfeilscript = GameObject.Find("Arrow").GetComponent<Pfeil>();
     }
 
     // Update is called once per frame
@@ -33,22 +32,16 @@ public class Einfachergegner : Enemy
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Arrow" && schießenscript.geschossen == true && schießenscript.critschaden == false)
+        if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == false)
         {
-            leben = leben - schießenscript.damage;
-
-
+            leben = leben - pfeilscript.damage;
         }
-        if (col.gameObject.tag == "Arrow" && schießenscript.geschossen == true && schießenscript.critschaden == true)
+        if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == true)
         {
-            leben = leben - schießenscript.damage * 2;
-
+            leben = leben - pfeilscript.damage * 2;
         }
-
     }
-
     public float getLeben() {
         return leben;
     }
-
 }

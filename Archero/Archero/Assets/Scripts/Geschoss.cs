@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CritRate : MonoBehaviour
+public class Geschoss : MonoBehaviour
 {
+    public float damage;
+    public float arrowspeed;
     public float zz;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        zzGenerieren(1, 100);
+        
     }
 
     // Update is called once per frame
@@ -21,5 +25,6 @@ public class CritRate : MonoBehaviour
         Random rnd = new Random();
         zz = Random.Range(pZahl1, pZahl2);
     }
+    
 
 }

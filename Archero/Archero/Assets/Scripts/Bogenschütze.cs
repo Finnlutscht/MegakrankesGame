@@ -54,6 +54,7 @@ public class Bogenschütze : Player
             unverwundbar = true;
             StartCoroutine(waitsec());
         }
+        
     }
     IEnumerator waitsec()
     {
@@ -62,5 +63,10 @@ public class Bogenschütze : Player
             yield return new WaitForSeconds(1);
             timerzahl = timerzahl + 1;
         }
+    }
+    void OnGUI()
+    {
+        string healthstring = leben.ToString();
+        GUI.Label(new Rect(1000, 10, 100, 30), healthstring);
     }
 }
