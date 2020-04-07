@@ -745,6 +745,7 @@ MonoBehaviour:
   leben: 1000
   speed: 10
   stoppingDistance: 0
+  bewegung: 0
   timerzahl: 0
   unverwundbar: 0
 --- !u!70 &858786784
@@ -1337,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  arrowspeed: 35
+  arrowspeed: 65
   zz: 0
   geschossen: 0
   critschaden: 0
@@ -1347,6 +1348,7 @@ MonoBehaviour:
   speed: 20
   stoppingDistance: 0
   alleTot: 0
+  "bogensch\xFCtzenscript": {fileID: 0}
 --- !u!50 &1256756652
 Rigidbody2D:
   serializedVersion: 4
@@ -1381,7 +1383,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0030151606, y: -0.007558614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1392,7 +1394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0301545, y: 1.0604782}
   m_EdgeRadius: 0
 --- !u!23 &1256756654
 MeshRenderer:
@@ -1449,7 +1451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256756650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 4.04, z: 0}
+  m_LocalPosition: {x: 2.863, y: 4.04, z: 0}
   m_LocalScale: {x: 0.0806, y: 0.06430756, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1551,7 +1553,7 @@ GameObject:
   - component: {fileID: 1979671836}
   m_Layer: 0
   m_Name: Marker
-  m_TagString: Enemy
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

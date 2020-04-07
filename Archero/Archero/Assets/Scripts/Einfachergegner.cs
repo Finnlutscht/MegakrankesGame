@@ -36,7 +36,7 @@ public class Einfachergegner : Enemy
         {
             leben = leben - pfeilscript.damage;
         }
-        if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == true)
+        else if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == true)
         {
             leben = leben - pfeilscript.damage * 2;
         }

@@ -16,6 +16,8 @@ public class Pfeil : Geschoss
     public float stoppingDistance;
     public bool alleTot = false;
 
+    public Bogenschütze bogenschützenscript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class Pfeil : Geschoss
 
         damage = 100;
         player = GameObject.Find("Me").GetComponent<Transform>();
+        bogenschützenscript = GameObject.Find("Me").GetComponent<Bogenschütze>();
     }
 
     void FixedUpdate()
@@ -34,12 +37,13 @@ public class Pfeil : Geschoss
     void schießen ()
     {
         closestPlayer = FindClosestEnemy();
-        if (closestPlayer.name == "Marker")
+        if (closestPlayer.tag == "Finish")
         {
             alleTot = true;
+            
         }
 
-        if (Input.GetButton("Fire1") == true && geschossen == false && timerzahl == 1 && alleTot == false)
+        if (bogenschützenscript.bewegung == false && geschossen == false && timerzahl == 1 && alleTot == false)
         {
             geschossen = true;
             timerzahl = 0;
@@ -51,18 +55,28 @@ public class Pfeil : Geschoss
             }
         }
 
-        if (geschossen == true)
+        if (geschossen == true && closestPlayer.tag != "Finish")
         {
             transform.position = Vector2.MoveTowards(transform.position, closestPlayer.transform.position, arrowspeed * Time.deltaTime);
-
+            
         }
 
-        if (Vector2.Distance(transform.position, closestPlayer.transform.position) == 0)
+        /*if (Vector2.Distance(transform.position, closestPlayer.transform.position) == 0)
+        {
+            transform.position = player.position;
+            geschossen = false;
+            critschaden = false;
+        }*/
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
         {
             transform.position = player.position;
             geschossen = false;
             critschaden = false;
         }
+       
     }
     void bewegen()
     {

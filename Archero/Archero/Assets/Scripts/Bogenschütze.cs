@@ -7,6 +7,7 @@ public class Bogenschütze : Player
     private Player playerscript;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
+    public bool bewegung = false;
 
     private Transform target;
     public int timerzahl;
@@ -36,6 +37,15 @@ public class Bogenschütze : Player
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+
+        if (Input.GetButton("Horizontal") == true || Input.GetButton("Vertical") == true)
+        {
+            bewegung = true;
+        }
+        else
+        { 
+            bewegung = false;
+        }
         
     }
     void verwundbar()
