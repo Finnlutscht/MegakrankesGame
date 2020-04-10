@@ -15,6 +15,7 @@ public class Pfeil : Geschoss
     public float speed;
     public float stoppingDistance;
     public bool alleTot = false;
+    public bool freiesSchussfeld = true;
 
     public Bogenschütze bogenschützenscript;
 
@@ -23,6 +24,7 @@ public class Pfeil : Geschoss
     {
         critschaden = false;
         timerzahl = 1;
+        freiesSchussfeld = true;
 
         damage = 100;
         player = GameObject.Find("Me").GetComponent<Transform>();
@@ -33,6 +35,10 @@ public class Pfeil : Geschoss
     {
         schießen();
         bewegen();
+        if (Vector2.Distance(transform.position, closestPlayer.transform.position) > 1)
+        {
+            freiesSchussfeld = true;
+        }
     }
     void schießen ()
     {
@@ -43,7 +49,7 @@ public class Pfeil : Geschoss
             
         }
 
-        if (bogenschützenscript.bewegung == false && geschossen == false && timerzahl == 1 && alleTot == false)
+        if (bogenschützenscript.bewegung == false && geschossen == false && timerzahl == 1 && alleTot == false && freiesSchussfeld == true)
         {
             geschossen = true;
             timerzahl = 0;
@@ -75,7 +81,10 @@ public class Pfeil : Geschoss
             transform.position = player.position;
             geschossen = false;
             critschaden = false;
+            freiesSchussfeld = false;
         }
+        
+        
        
     }
     void bewegen()

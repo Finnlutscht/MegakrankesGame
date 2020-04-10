@@ -265,7 +265,7 @@ MonoBehaviour:
   damage: 100
   leben: 500
   speed: 0
-  stoppingDistance: 0
+  stoppingDistance: 0.5
   target: {fileID: 858786788}
 --- !u!1 &301103416
 GameObject:
@@ -928,8 +928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   leben: 500
-  speed: 6
-  stoppingDistance: 0
+  speed: 0
+  stoppingDistance: 0.5
   target: {fileID: 858786788}
 --- !u!23 &901043091
 MeshRenderer:
@@ -1126,8 +1126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   leben: 500
-  speed: 0
-  stoppingDistance: 0
+  speed: 6
+  stoppingDistance: 0.5
   target: {fileID: 858786788}
 --- !u!50 &965474742
 Rigidbody2D:
