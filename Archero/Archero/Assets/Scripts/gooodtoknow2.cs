@@ -31,7 +31,6 @@ public class gooodtoknow : MonoBehaviour
         // float horizontal_movement = Input.GetAxis("Horizontal") ;
         // float vertical_movement = Input.GetAxis("Vertical") ;
         // transform.Translate(horizontal_movement * speed * Time.deltaTime, vertical_movement * speed * Time.deltaTime, 0);
-        //System.Threading.Thread.Sleep(3000);
         //Vector3 lookVektor = target.position - transform.position;
         //transform.rotation = Quaternion.LookRotation(lookVektor);
     }
