@@ -47,38 +47,104 @@ public class Bogenschütze : Player
         verwundbar();
         
     }
-
     void bewegen()
     {
-        if (linkeWand == true)
-        {
-            if (integer < 0)
-            {
-                moveVelocity = moveInput.normalized * speed * 0;
-            }
-            else if(integer > 0)
-            {
-                moveVelocity = moveInput.normalized * speed;
-            }
-
-        }
-        else if (linkeWand == false)
-        {
             moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             moveVelocity = moveInput.normalized * speed;
             rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+
+        if (linkeWand == true)
+        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                moveInput = new Vector2(0, Input.GetAxis("Vertical"));
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
         }
+        //----------------------------------------------------------
+        if (obereWand == true)
+        {
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //--------------------------------------------------------------
+        if (rechteWand == true)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                moveInput = new Vector2(0, Input.GetAxis("Vertical"));
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //-------------------------------------------------------------------
+        if (untereWand == true)
+        {
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //-----------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------
+        if (linkeWand == true && obereWand == true)
+        {
+            if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") < 0)
+            {
+                moveInput = new Vector2(0, 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //-----------------------------------------------------------------------------------
+        if (linkeWand == true && untereWand == true)
+        {
+            if (Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") < 0)
+            {
+                moveInput = new Vector2(0, 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //-----------------------------------------------------------------------------------
+        if (rechteWand == true && obereWand == true)
+        {
+            if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0)
+            {
+                moveInput = new Vector2(0, 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+        //-----------------------------------------------------------------------------------
+        if (rechteWand == true && untereWand == true)
+        {
+            if (Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") > 0)
+            {
+                moveInput = new Vector2(0, 0);
+                moveVelocity = moveInput.normalized * speed;
+                rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+            }
+        }
+
 
         if (Input.GetButton("Horizontal") == true || Input.GetButton("Vertical") == true)
         {
             bewegung = true;
         }
         else
-        { 
+        {
             bewegung = false;
-        }    
-
+        }
     }
+    
 
     void verwundbar()
     {
@@ -102,11 +168,39 @@ public class Bogenschütze : Player
         {
             linkeWand = true;
             wand1.GetComponent<Renderer>().material.color = Color.green;
-           
         }
-        else if(col.gameObject.name != "Rand1")
+        if (col.gameObject.name == "Rand2")
+        {
+            obereWand = true;
+        }
+        if (col.gameObject.name == "Rand3")
+        {
+            rechteWand = true;
+        }
+        if (col.gameObject.name == "Rand4")
+        {
+            untereWand = true;
+
+        }
+
+    }
+    void OnCollisionExit2D (Collision2D excol)
+    {
+        if(excol.gameObject.name == "Rand1")
         {
             linkeWand = false;
+        }
+        if (excol.gameObject.name == "Rand2")
+        {
+            obereWand = false;
+        }
+        if (excol.gameObject.name == "Rand3")
+        {
+            rechteWand = false;
+        }
+        if (excol.gameObject.name == "Rand4")
+        {
+            untereWand = false;
         }
     }
     IEnumerator waitsec()
