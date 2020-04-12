@@ -8,10 +8,15 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject Enemyprefab;
     public Transform point;
+
+    public float gegnerAnzahl;
     // Start is called before the first frame update
     void Start()
     {
-        spawn();
+        for (int i = 0; i < gegnerAnzahl; i++)
+        {
+            spawn();
+        }
     }
 
     // Update is called once per frame
@@ -21,6 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             spawn();
         }
+        
     }
     public void spawn()
     {

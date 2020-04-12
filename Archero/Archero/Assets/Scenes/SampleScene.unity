@@ -763,9 +763,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878c1048b834d924e801833f1afa8343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemyprefab: {fileID: 1911876595715354016, guid: 0f932397a873f7d429f9d07380053608,
+  Enemyprefab: {fileID: 4697703111933531899, guid: df1667a7e2725754cba54c30ba6d8c11,
     type: 3}
   point: {fileID: 2127028583}
+  gegnerAnzahl: 10
 --- !u!1 &916220741
 GameObject:
   m_ObjectHideFlags: 0
