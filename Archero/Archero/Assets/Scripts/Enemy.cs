@@ -23,20 +23,6 @@ public abstract class Enemy : MonoBehaviour
        
     }
    
-    /*void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Arrow" && schießenscript.geschossen == true && schießenscript.critschaden == false)
-        {
-            enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage;
-
-
-        }
-        if (col.gameObject.tag == "Arrow" && schießenscript.geschossen == true && schießenscript.critschaden == true)
-        {
-            enemystatsscript.leben = enemystatsscript.leben - schießenscript.damage * 2;
-
-        }
-
-    }*/
+   
 
 }
