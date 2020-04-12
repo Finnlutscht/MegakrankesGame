@@ -1,13 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewBehaviourScript : Zufall
 {
     public GameObject Enemyprefab;
-    public Transform point;
+    public Vector3 center;
+    public float zahl1;
+    public float zahl2;
+   
 
     public float gegnerAnzahl;
     // Start is called before the first frame update
@@ -30,7 +34,12 @@ public class NewBehaviourScript : MonoBehaviour
     }
     public void spawn()
     {
-        Vector3 pos = point.position;
+        zzGenerieren1();
+        zzGenerieren2();
+        zahl1 = zahlX;
+        zahl2 = zahlY;
+        Vector3 pos = center + new Vector3(zahl1,zahl1, 0);
         Instantiate(Enemyprefab, pos, Quaternion.identity);
     }
+   
 }
