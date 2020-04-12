@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   leben: 500
-  speed: 0
+  speed: 7
   stoppingDistance: 0.5
   target: {fileID: 858786788}
 --- !u!1 &301103416
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   leben: 500
-  speed: 0
+  speed: 7
   stoppingDistance: 0.5
   target: {fileID: 858786788}
 --- !u!23 &901043091
