@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Einfachergegner : Enemy
 {
     private Pfeil pfeilscript;
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
         pfeilscript = GameObject.Find("Arrow").GetComponent<Pfeil>();
+        target = GameObject.Find("Me").GetComponent<Transform>();
     }
 
     // Update is called once per frame

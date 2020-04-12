@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public float speed;
     public float stoppingDistance;
 
-    public Transform target;
+    
 
     // Start is called before the first frame update
     void Start()

@@ -266,7 +266,6 @@ MonoBehaviour:
   leben: 500
   speed: 7
   stoppingDistance: 0.5
-  target: {fileID: 858786788}
 --- !u!1 &301103416
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +995,6 @@ MonoBehaviour:
   leben: 500
   speed: 7
   stoppingDistance: 0.5
-  target: {fileID: 858786788}
 --- !u!23 &901043091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2051,6 +2049,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 858786788}
+    - target: {fileID: 4697703111933531896, guid: df1667a7e2725754cba54c30ba6d8c11,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4697703111933531899, guid: df1667a7e2725754cba54c30ba6d8c11,
         type: 3}
       propertyPath: m_Name
