@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class NewBehaviourScript : Zufall
+public class Spawn : Zufall
 {
     public GameObject Enemyprefab;
     public Vector3 center;
@@ -38,6 +38,7 @@ public class NewBehaviourScript : Zufall
         zzGenerieren2();
         zahl1 = zahlX;
         zahl2 = zahlY;
+       
         Vector3 pos = center + new Vector3(zahl1,zahl1, 0);
         Instantiate(Enemyprefab, pos, Quaternion.identity);
     }

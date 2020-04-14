@@ -648,10 +648,15 @@ MonoBehaviour:
   speed: 10
   stoppingDistance: 0
   bewegung: 0
+  Arrowprefab: {fileID: 0}
+  feuerrateProSekunde: 0
+  critRateInProzent: 0
   timerzahl: 0
   unverwundbar: 0
   linkeWand: 0
   integer: 0
+  harmlos: 0
+  erschaffen: 0
 --- !u!70 &858786784
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -878,17 +883,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 968721627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878c1048b834d924e801833f1afa8343, type: 3}
+  m_Script: {fileID: 11500000, guid: f20bfa495a6b10142bba810967482bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zahlY: 0
   zahlX: 0
   Enemyprefab: {fileID: 4697703111933531899, guid: df1667a7e2725754cba54c30ba6d8c11,
     type: 3}
-  center: {x: 2.5, y: 0.6, z: 0}
+  center: {x: 0, y: 0, z: 0}
   zahl1: 0
   zahl2: 0
-  gegnerAnzahl: 6
+  gegnerAnzahl: 5
 --- !u!65 &968721629
 BoxCollider:
   m_ObjectHideFlags: 0

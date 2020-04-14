@@ -7,10 +7,15 @@ using UnityEngine;
 public class Bogenschütze : Player
 {
     private Player playerscript;
+    private Einfachergegner einfachergegnerscript;
+    private Pfeil pfeilscript;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public bool bewegung = false;
     private Vector2 moveInput;
+    public GameObject Arrowprefab;
+    public float feuerrateProSekunde;
+    public float critRateInProzent;
 
     private Transform target;
     public int timerzahl;
@@ -21,13 +26,19 @@ public class Bogenschütze : Player
     private bool obereWand;
     private bool untereWand;
     public float integer;
+    public bool harmlos;
+    public bool erschaffen;
 
     // Start is called before the first frame update
     void Start()
     {
+        //timerzahl = 1;
+        erschaffen = false;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
         wand1 = GameObject.Find("Rand1");
+        einfachergegnerscript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Einfachergegner>();
+        pfeilscript = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Pfeil>();
     }
 
     // Update is called once per frame
@@ -44,7 +55,7 @@ public class Bogenschütze : Player
     void FixedUpdate()
     {
         bewegen();
-        verwundbar();
+        abschuss();
         
     }
     void bewegen()
@@ -142,44 +153,67 @@ public class Bogenschütze : Player
         else
         {
             bewegung = false;
+            
         }
     }
-    
-
-    void verwundbar()
-    {
-        if (Vector2.Distance(transform.position, target.position) > 1.5 || timerzahl == 3)
-        {
-            unverwundbar = false;
-            timerzahl = 0;
-        }
-    }
-    void OnCollisionEnter2D(Collision2D col)
+    void abschuss()
     {
         
-        if (col.gameObject.tag == "Enemy" && unverwundbar == false)
+        
+        if (bewegung == false && timerzahl == 1)// && pfeilscript.alleTot == false && pfeilscript.freiesSchussfeld == true)
+        {
+            Instantiate(Arrowprefab, transform.position, Quaternion.identity);
+            pfeilscript.geschossen = true;
+            timerzahl = 0;
+            StartCoroutine(waitsec());
+            pfeilscript.zzGenerieren(1, 100);
+            if (pfeilscript.zz < critRateInProzent)
+            {
+                pfeilscript.critschaden = true;
+            }
+        }
+    }
+
+    IEnumerator waitsec()
+    {
+
+        
+        if (timerzahl == 0)
+        {
+            yield return new WaitForSeconds(1 / feuerrateProSekunde);
+            //timerzahl += 1;
+        }
+    }
+
+
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+
+        if (col.gameObject.tag == "Enemy")// && col.gameObject.Einfachergegner.harmlos == false)
         {
             leben = leben - 100;
-            unverwundbar = true;
-            StartCoroutine(waitsec());
         }
 
         if(col.gameObject.name == "Rand1") 
         {
             linkeWand = true;
-            wand1.GetComponent<Renderer>().material.color = Color.green;
+           
         }
         if (col.gameObject.name == "Rand2")
         {
             obereWand = true;
+            
         }
         if (col.gameObject.name == "Rand3")
         {
             rechteWand = true;
+            
         }
         if (col.gameObject.name == "Rand4")
         {
             untereWand = true;
+           
 
         }
 
@@ -203,14 +237,7 @@ public class Bogenschütze : Player
             untereWand = false;
         }
     }
-    IEnumerator waitsec()
-    {
-        while (timerzahl < 4)
-        {
-            yield return new WaitForSeconds(1);
-            timerzahl = timerzahl + 1;
-        }
-    }
+    
     void OnGUI()
     {
         string healthstring = leben.ToString();

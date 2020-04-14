@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public float leben;
     public float speed;
     public float stoppingDistance;
+    public bool harmlos;
 
     
 

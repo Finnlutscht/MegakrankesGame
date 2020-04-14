@@ -25,6 +25,7 @@ public class Pfeil : Geschoss
         critschaden = false;
         timerzahl = 1;
         freiesSchussfeld = true;
+        geschossen = false;
 
         damage = 100;
         player = GameObject.Find("Me").GetComponent<Transform>();

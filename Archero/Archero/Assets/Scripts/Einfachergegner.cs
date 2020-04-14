@@ -8,17 +8,20 @@ public class Einfachergegner : Enemy
 {
     private Pfeil pfeilscript;
     private Transform target;
+    private int timerzahl;
 
     // Start is called before the first frame update
     void Start()
     {
         pfeilscript = GameObject.Find("Arrow").GetComponent<Pfeil>();
         target = GameObject.Find("Me").GetComponent<Transform>();
+        harmlos = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        verwundbar();
         bewegen();
         if (leben < 1)
         {
@@ -34,11 +37,34 @@ public class Einfachergegner : Enemy
 
         }
     }
+    void verwundbar()
+    {
+        if (timerzahl == 3)
+        {
+            harmlos = false;
+            timerzahl = 0;
+        }
+    }
+    IEnumerator waitsec()
+    {
+       for(int i = 0; i < 4; i++)
+       {
+            yield return new WaitForSeconds(1);
+            timerzahl = timerzahl + 1;
+       }
+    }
     void OnCollisionEnter2D(Collision2D col)
     {
+        if(col.gameObject.name == "Me" && harmlos == false)
+        {
+            //harmlos = true;
+            StartCoroutine(waitsec());
+        }
+
         if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == false)
         {
             leben = leben - pfeilscript.damage;
+           // Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == true)
         {
