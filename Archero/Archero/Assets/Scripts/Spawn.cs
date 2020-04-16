@@ -8,18 +8,24 @@ using UnityEngine;
 public class Spawn : Zufall
 {
     public GameObject Enemyprefab;
+    public GameObject Healthprefab;
     public Vector3 center;
     public float zahl1;
     public float zahl2;
    
 
-    public float gegnerAnzahl;
+    public float GegnerAnzahl;
+    public float HealthAnzahl;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < gegnerAnzahl; i++)
+        for (int i = 0; i < GegnerAnzahl; i++)
         {
-            spawn();
+            spawnGegner();
+        }
+        for (int i = 0; i < HealthAnzahl; i++)
+        {
+            spawnHealth();
         }
     }
 
@@ -28,19 +34,28 @@ public class Spawn : Zufall
     {
         if(Input.GetKey(KeyCode.Q))
         {
-            spawn();
+            spawnGegner();
+            spawnHealth();
         }
         
     }
-    public void spawn()
+    public void spawnGegner()
     {
-        zzGenerieren1();
-        zzGenerieren2();
-        zahl1 = zahlX;
-        zahl2 = zahlY;
-       
-        Vector3 pos = center + new Vector3(zahl1,zahl1, 0);
+        zahl1 = zzGenerieren1(-20f, 20f);
+        zahl2 = zzGenerieren2(-8f, 8f);
+
+        Vector3 pos = center + new Vector3(zahl1,zahl2, 0);
         Instantiate(Enemyprefab, pos, Quaternion.identity);
+    }
+    public void spawnHealth()
+    {
+        
+        
+        zahl1 = zzGenerieren1(-20f,20f);
+        zahl2 = zzGenerieren2(-8f,8f);
+
+        Vector3 pos = center + new Vector3(zahl1, zahl2, 0);
+        Instantiate(Healthprefab, pos, Quaternion.identity);
     }
    
 }

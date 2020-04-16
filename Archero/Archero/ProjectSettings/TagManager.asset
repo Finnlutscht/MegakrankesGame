@@ -9,6 +9,7 @@ TagManager:
   - Spitze
   - Wand
   - tot
+  - Health
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Pfeil : Geschoss
@@ -14,6 +15,7 @@ public class Pfeil : Geschoss
     public float speed;
     public float stoppingDistance;
     public bool freiesSchussfeld = true;
+    private Vector2 zielPosition;
 
     private Bogenschütze bogenschützenscript;
 
@@ -37,12 +39,18 @@ public class Pfeil : Geschoss
     void schießen ()
     {
         closestPlayer = FindClosestEnemy();
+        zielPosition = closestPlayer.transform.position;
         zzGenerieren(1, 100);
         if (zz < critRateInProzent)
         {
             critschaden = true;
         }
-        transform.position = Vector2.MoveTowards(transform.position, closestPlayer.transform.position, arrowspeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, zielPosition, arrowspeed * Time.deltaTime);
+
+        /*if(Vector2.Distance(transform.position,zielPosition) == 0)
+        {
+            Destroy(gameObject);
+        }*/
     }
     void OnCollisionEnter2D(Collision2D col)
     {

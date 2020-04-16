@@ -17,12 +17,14 @@ public abstract class Zufall : MonoBehaviour
     {
         
     }
-    public void zzGenerieren1()
+    public float zzGenerieren1(float pZahl1, float pZahl2)
     {
-       zahlX = Random.Range(-20f, 20f);
+       zahlX = Random.Range(pZahl1, pZahl2);
+        return zahlX;
     }
-    public void zzGenerieren2()
+    public float zzGenerieren2(float pZahl1, float pZahl2)
     {
-      zahlY =  Random.Range(-8f, 8f);
+      zahlY =  Random.Range(pZahl1, pZahl2);
+        return zahlY;
     }
 }

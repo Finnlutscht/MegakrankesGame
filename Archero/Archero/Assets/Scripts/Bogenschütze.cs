@@ -173,8 +173,13 @@ public class Bogenschütze : Player
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.tag == "Health")
+        {
+            leben = leben + 200;
+            Destroy(col.gameObject);
+        }
 
-        if (col.gameObject.tag == "Enemy")// && col.gameObject.Einfachergegner.harmlos == false)
+        if (col.gameObject.tag == "Enemy")
         {
             leben = leben - 100;
            
