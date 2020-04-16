@@ -19,10 +19,10 @@ public abstract class Zufall : MonoBehaviour
     }
     public void zzGenerieren1()
     {
-       zahlX = Random.Range(-22.5f, 27.5f);
+       zahlX = Random.Range(-20f, 20f);
     }
     public void zzGenerieren2()
     {
-      zahlY =  Random.Range(-9.4f, 10.6f);
+      zahlY =  Random.Range(-8f, 8f);
     }
 }

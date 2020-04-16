@@ -10,20 +10,17 @@ public class Pfeil : Geschoss
     public int critRateInProzent;
     private GameObject closestPlayer;
     private GameObject closest;
-    public float timerzahl;
     public float feuerrateProSekunde;
     public float speed;
     public float stoppingDistance;
-    public bool alleTot = false;
     public bool freiesSchussfeld = true;
 
-    public Bogenschütze bogenschützenscript;
+    private Bogenschütze bogenschützenscript;
 
     // Start is called before the first frame update
     void Start()
     {
         critschaden = false;
-        timerzahl = 1;
         freiesSchussfeld = true;
         geschossen = false;
 
@@ -36,53 +33,33 @@ public class Pfeil : Geschoss
     {
         schießen();
         bewegen();
-        if (Vector2.Distance(transform.position, closestPlayer.transform.position) > 1)
-        {
-            freiesSchussfeld = true;
-        }
     }
     void schießen ()
     {
         closestPlayer = FindClosestEnemy();
-        if (closestPlayer.tag == "Finish")
+        zzGenerieren(1, 100);
+        if (zz < critRateInProzent)
         {
-            alleTot = true;
-            
+            critschaden = true;
         }
-
-        if (bogenschützenscript.bewegung == false && geschossen == false && timerzahl == 1 && alleTot == false && freiesSchussfeld == true)
-        {
-            geschossen = true;
-            timerzahl = 0;
-            StartCoroutine(waitsec());
-            zzGenerieren(1, 100);
-            if (zz < critRateInProzent)
-            {
-                critschaden = true;
-            }
-        }
-
-        if (geschossen == true && closestPlayer.tag != "Finish")
-        {
-            transform.position = Vector2.MoveTowards(transform.position, closestPlayer.transform.position, arrowspeed * Time.deltaTime);
-            
-        }
-
-        /*if (Vector2.Distance(transform.position, closestPlayer.transform.position) == 0)
-        {
-            transform.position = player.position;
-            geschossen = false;
-            critschaden = false;
-        }*/
+        transform.position = Vector2.MoveTowards(transform.position, closestPlayer.transform.position, arrowspeed * Time.deltaTime);
     }
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy")
         {
-            transform.position = player.position;
-            geschossen = false;
             critschaden = false;
-            freiesSchussfeld = false;
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.name == "Marker")
+        {
+            Destroy(col.gameObject);
+        }
+
+        if(col.gameObject.tag == "Wand")
+        {
+            Destroy(gameObject);
         }
         
         
@@ -114,14 +91,7 @@ public class Pfeil : Geschoss
         }
         return closest;
     }
-    IEnumerator waitsec()
-    {
-        while (timerzahl != 1)
-        {
-            yield return new WaitForSeconds(1 / feuerrateProSekunde);
-            timerzahl += 1;
-        }
-    }
+   
     
 
 

@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class Bogenschütze : Player
 {
-    private Player playerscript;
-    private Einfachergegner einfachergegnerscript;
-    private Pfeil pfeilscript;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public bool bewegung = false;
@@ -16,29 +13,23 @@ public class Bogenschütze : Player
     public GameObject Arrowprefab;
     public float feuerrateProSekunde;
     public float critRateInProzent;
+    private bool alleTot;
+    private GameObject closestPlayer;
+    private GameObject closest;
 
     private Transform target;
-    public int timerzahl;
-    public bool unverwundbar;
-    private GameObject wand1;
+    public bool timer;
     public bool linkeWand;
     private bool rechteWand;
     private bool obereWand;
     private bool untereWand;
-    public float integer;
-    public bool harmlos;
-    public bool erschaffen;
 
     // Start is called before the first frame update
     void Start()
     {
-        //timerzahl = 1;
-        erschaffen = false;
+        timer = true;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
-        wand1 = GameObject.Find("Rand1");
-        einfachergegnerscript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Einfachergegner>();
-        pfeilscript = GameObject.FindGameObjectWithTag("Arrow").GetComponent<Pfeil>();
     }
 
     // Update is called once per frame
@@ -48,15 +39,11 @@ public class Bogenschütze : Player
         {
             Destroy(gameObject);
         }
-        integer = Input.GetAxis("Horizontal");
-        
-        
     }
     void FixedUpdate()
     {
         bewegen();
         abschuss();
-        
     }
     void bewegen()
     {
@@ -158,30 +145,27 @@ public class Bogenschütze : Player
     }
     void abschuss()
     {
-        
-        
-        if (bewegung == false && timerzahl == 1)// && pfeilscript.alleTot == false && pfeilscript.freiesSchussfeld == true)
+        closestPlayer = FindClosestEnemy();
+
+        if (bewegung == false && timer == true && alleTot == false)
         {
             Instantiate(Arrowprefab, transform.position, Quaternion.identity);
-            pfeilscript.geschossen = true;
-            timerzahl = 0;
-            StartCoroutine(waitsec());
-            pfeilscript.zzGenerieren(1, 100);
-            if (pfeilscript.zz < critRateInProzent)
-            {
-                pfeilscript.critschaden = true;
-            }
+            timer = false;
+            StartCoroutine(waitsec());          
+        }
+        if(closestPlayer.name == "Test")
+        {
+            alleTot = true;
         }
     }
+    
 
     IEnumerator waitsec()
     {
-
-        
-        if (timerzahl == 0)
+        if (timer == false)
         {
             yield return new WaitForSeconds(1 / feuerrateProSekunde);
-            //timerzahl += 1;
+            timer = true;
         }
     }
 
@@ -193,6 +177,7 @@ public class Bogenschütze : Player
         if (col.gameObject.tag == "Enemy")// && col.gameObject.Einfachergegner.harmlos == false)
         {
             leben = leben - 100;
+           
         }
 
         if(col.gameObject.name == "Rand1") 
@@ -237,7 +222,25 @@ public class Bogenschütze : Player
             untereWand = false;
         }
     }
-    
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
     void OnGUI()
     {
         string healthstring = leben.ToString();

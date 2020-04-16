@@ -61,12 +61,12 @@ public class Einfachergegner : Enemy
             StartCoroutine(waitsec());
         }
 
-        if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == false)
+        if (col.gameObject.tag == "Arrow" && pfeilscript.critschaden == false)
         {
             leben = leben - pfeilscript.damage;
            // Destroy(col.gameObject);
         }
-        else if (col.gameObject.tag == "Arrow" && pfeilscript.geschossen == true && pfeilscript.critschaden == true)
+        else if (col.gameObject.tag == "Arrow" && pfeilscript.critschaden == true)
         {
             leben = leben - pfeilscript.damage * 2;
         }
