@@ -49,4 +49,10 @@ public class gooodtoknow : MonoBehaviour
             Destroy(col.gameObject);
         }
     }*/
+    /*
+     * public void ChangeScene(String sceneName)
+     * {
+     * Application.LoadLevel(sceneName);
+     * }
+     */
 }

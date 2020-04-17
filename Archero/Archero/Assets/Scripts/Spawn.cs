@@ -8,7 +8,10 @@ using UnityEngine;
 public class Spawn : Zufall
 {
     public GameObject Enemyprefab;
-    public GameObject Healthprefab;
+    public GameObject HealthBallPrefab;
+    public GameObject HealthButtonPrefab;
+    
+    private Bogenschütze bogenSchützenScript;
     public Vector3 center;
     public float zahl1;
     public float zahl2;
@@ -19,6 +22,9 @@ public class Spawn : Zufall
     // Start is called before the first frame update
     void Start()
     {
+      
+       
+        bogenSchützenScript = GameObject.Find("Me").GetComponent<Bogenschütze>();
         for (int i = 0; i < GegnerAnzahl; i++)
         {
             spawnGegner();
@@ -32,7 +38,8 @@ public class Spawn : Zufall
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Q))
+       
+        if (Input.GetKey(KeyCode.Q))
         {
             spawnGegner();
             spawnHealth();
@@ -55,7 +62,15 @@ public class Spawn : Zufall
         zahl2 = zzGenerieren2(-8f,8f);
 
         Vector3 pos = center + new Vector3(zahl1, zahl2, 0);
-        Instantiate(Healthprefab, pos, Quaternion.identity);
+        Instantiate(HealthBallPrefab, pos, Quaternion.identity);
+    }
+    void belohnugAussuchen()
+    {
+        
+          /*  Vector3 Healthposition = new Vector3(0f, 0f, 0f);
+            Instantiate(HealthButtonPrefab, posb, Quaternion.identity);
+            */
+        
     }
    
 }

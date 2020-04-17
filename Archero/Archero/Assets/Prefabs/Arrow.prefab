@@ -142,12 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  arrowspeed: 20
+  arrowspeed: 30
   zz: 0
   geschossen: 0
   critschaden: 0
   critRateInProzent: 10
-  feuerrateProSekunde: 3
+  feuerrateProSekunde: 1
   speed: 20
   stoppingDistance: 0
   freiesSchussfeld: 1

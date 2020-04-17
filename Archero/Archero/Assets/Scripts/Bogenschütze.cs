@@ -13,13 +13,14 @@ public class Bogenschütze : Player
     public GameObject Arrowprefab;
     public float feuerrateProSekunde;
     public float critRateInProzent;
-    private bool alleTot;
+    public float mehrfachSchuss;
+    public bool alleTot;
     private GameObject closestPlayer;
     private GameObject closest;
 
     private Transform target;
-    public bool timer;
-    public bool linkeWand;
+    private bool timer;
+    private bool linkeWand;
     private bool rechteWand;
     private bool obereWand;
     private bool untereWand;
@@ -150,6 +151,10 @@ public class Bogenschütze : Player
         if (bewegung == false && timer == true && alleTot == false)
         {
             Instantiate(Arrowprefab, transform.position, Quaternion.identity);
+            for(int i = 0; i< mehrfachSchuss; i++)
+            {
+                StartCoroutine(zweiterAbschuss());
+            }
             timer = false;
             StartCoroutine(waitsec());          
         }
@@ -158,7 +163,13 @@ public class Bogenschütze : Player
             alleTot = true;
         }
     }
-    
+    IEnumerator zweiterAbschuss()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(Arrowprefab, transform.position, Quaternion.identity);
+
+    }
+
 
     IEnumerator waitsec()
     {
@@ -251,4 +262,12 @@ public class Bogenschütze : Player
         string healthstring = leben.ToString();
         GUI.Label(new Rect(1000, 10, 100, 30), healthstring);
     }
+    public void addHealth()
+    {
+        leben = leben + 250;
+    }
+    public void ChangeScene(String sceneName)
+     {
+     Application.LoadLevel(sceneName);
+     }
 }

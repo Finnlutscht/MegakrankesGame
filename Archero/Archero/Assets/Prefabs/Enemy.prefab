@@ -141,8 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf8f15c269240347811abb9af54bdf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zahlY: 0
+  zahlX: 0
   damage: 100
   leben: 500
-  speed: 5
+  speed: 7
   stoppingDistance: 0.5
   harmlos: 0
