@@ -8,6 +8,7 @@ using UnityEngine;
 public class Einfachergegner : Enemy
 {
     private Pfeil pfeilscript;
+    private Bogenschütze bsscript;
     private Transform target;
     private int timerzahl;
     private bool laufen;
@@ -17,6 +18,7 @@ public class Einfachergegner : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        bsscript = GameObject.Find("Me").GetComponent<Bogenschütze>();
         zahl1 = zzGenerieren1(0f, 2f);
         StartCoroutine(warten());
         laufen = false;
@@ -91,16 +93,16 @@ public class Einfachergegner : Enemy
         if(col.gameObject.name == "Me" && harmlos == false)
         {
             //harmlos = true;
-            StartCoroutine(waitsec());
+            //StartCoroutine(waitsec());
         }
 
         if (col.gameObject.tag == "Arrow" && pfeilscript.critschaden == false)
         {
-            leben = leben - pfeilscript.damage;
+            leben = leben - bsscript.damage;
         }
         else if (col.gameObject.tag == "Arrow" && pfeilscript.critschaden == true)
         {
-            leben = leben - pfeilscript.damage * 2;
+            leben = leben - bsscript.damage * 2;
         }
     }
     public float getLeben() {

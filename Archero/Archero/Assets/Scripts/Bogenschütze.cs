@@ -17,6 +17,8 @@ public class Bogenschütze : Player
     public bool alleTot;
     private GameObject closestPlayer;
     private GameObject closest;
+    private Spawn spawnscript;
+    private bool gespawnt;
 
     private Transform target;
     private bool timer;
@@ -28,6 +30,8 @@ public class Bogenschütze : Player
     // Start is called before the first frame update
     void Start()
     {
+        gespawnt = false;
+        spawnscript = GameObject.Find("Cube").GetComponent<Spawn>();
         timer = true;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
@@ -39,6 +43,13 @@ public class Bogenschütze : Player
         if (leben < 1)
         {
             Destroy(gameObject);
+        }
+        if(alleTot == true && gespawnt == false)
+        {
+
+            gespawnt = true;
+                spawnscript.belohnugAussuchen();
+            
         }
     }
     void FixedUpdate()
