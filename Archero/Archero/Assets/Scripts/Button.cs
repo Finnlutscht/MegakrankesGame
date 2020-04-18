@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Button : MonoBehaviour
         bsscript.leben = bsscript.leben + 250;
         // Application.LoadLevel(sceneName);
         Destroy(gameObject);
+        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
