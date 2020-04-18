@@ -1,3 +1,1 @@
-# MegakrankesGame
-ihr stinkt alle
-Deine Mutter auch
+# Versuch ein cooles Spiel mit Unity und C# zu Erstellen
