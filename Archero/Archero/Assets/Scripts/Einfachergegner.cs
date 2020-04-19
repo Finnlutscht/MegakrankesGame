@@ -30,7 +30,6 @@ public class Einfachergegner : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
-
         verwundbar();
         bewegen();
         if (leben < 1)

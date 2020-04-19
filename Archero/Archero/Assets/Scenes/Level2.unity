@@ -294,8 +294,8 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   zahl1: 0
   zahl2: 0
-  EinfacherGegnerAnzahl: 9
-  "Schie\xDFendeGegnerAnzahl": 9
+  EinfacherGegnerAnzahl: 3
+  "Schie\xDFendeGegnerAnzahl": 3
   HealthAnzahl: 3
 --- !u!65 &26206818
 BoxCollider:

@@ -21,6 +21,14 @@ public class Button : MonoBehaviour
         Destroy(gameObject);
         SceneManager.LoadScene(1);
     }
+    public void addHealth2()
+    {
+        bsscript.leben = bsscript.leben + 250;
+        // Application.LoadLevel(sceneName);
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 
     // Update is called once per frame
     void Update()
