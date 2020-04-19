@@ -19,6 +19,7 @@ public class Button : MonoBehaviour
         bsscript.leben = bsscript.leben + 250;
         // Application.LoadLevel(sceneName);
         Destroy(gameObject);
+        PlayerPrefs.SetFloat("leben", bsscript.leben);
         SceneManager.LoadScene(1);
     }
     public void addHealth2()
@@ -33,6 +34,6 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
