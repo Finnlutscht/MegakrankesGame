@@ -289,7 +289,7 @@ MonoBehaviour:
     type: 3}
   HealthBallPrefab: {fileID: 361148768516477586, guid: 678277e6151efdd46979c9f5e6323fd7,
     type: 3}
-  HealthButtonPrefab: {fileID: 5071406804932574551, guid: 191457b82de474a4d91a051b386189c5,
+  HealthButtonPrefab: {fileID: 62974401759363354, guid: ee732bcd7644bf646b28a66c2c65a49d,
     type: 3}
   center: {x: 0, y: 0, z: 0}
   zahl1: 0

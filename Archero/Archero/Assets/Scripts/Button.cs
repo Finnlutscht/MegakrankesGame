@@ -26,7 +26,7 @@ public class Button : MonoBehaviour
         bsscript.leben = bsscript.leben + 250;
         // Application.LoadLevel(sceneName);
         Destroy(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(2);
     }
 
 
