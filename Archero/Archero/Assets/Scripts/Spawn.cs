@@ -7,28 +7,29 @@ using UnityEngine;
 
 public class Spawn : Zufall
 {
-    public GameObject Enemyprefab;
+    public GameObject EinfacheGegnerPrefab;
+    public GameObject SchießendeGegnerPrefab;
     public GameObject HealthBallPrefab;
     public GameObject HealthButtonPrefab;
  
-    private Bogenschütze bogenSchützenScript;
     public Vector3 center;
     public float zahl1;
     public float zahl2;
    
 
-    public float GegnerAnzahl;
+    public float EinfacherGegnerAnzahl;
+    public float SchießendeGegnerAnzahl;
     public float HealthAnzahl;
     // Start is called before the first frame update
     void Start()
     {
-
-        
-       
-        bogenSchützenScript = GameObject.Find("Me").GetComponent<Bogenschütze>();
-        for (int i = 0; i < GegnerAnzahl; i++)
+        for (int i = 0; i < SchießendeGegnerAnzahl; i++)
         {
-            spawnGegner();
+            spawnSchießendeGegner();
+        }
+        for (int i = 0; i < EinfacherGegnerAnzahl; i++)
+        {
+            spawnEinfacheGegner();
         }
         for (int i = 0; i < HealthAnzahl; i++)
         {
@@ -40,20 +41,22 @@ public class Spawn : Zufall
     void Update()
     {
        
-        if (Input.GetKey(KeyCode.Q))
-        {
-            spawnGegner();
-            spawnHealth();
-        }
-        
     }
-    public void spawnGegner()
+    public void spawnEinfacheGegner()
     {
         zahl1 = zzGenerieren1(-20f, 20f);
         zahl2 = zzGenerieren2(-8f, 8f);
 
         Vector3 pos = center + new Vector3(zahl1,zahl2, 0);
-        Instantiate(Enemyprefab, pos, Quaternion.identity);
+        Instantiate(EinfacheGegnerPrefab, pos, Quaternion.identity);
+    }
+    public void spawnSchießendeGegner()
+    {
+        zahl1 = zzGenerieren1(-20f, 20f);
+        zahl2 = zzGenerieren2(-8f, 8f);
+
+        Vector3 pos = center + new Vector3(zahl1, zahl2, 0);
+        Instantiate(SchießendeGegnerPrefab, pos, Quaternion.identity);
     }
     public void spawnHealth()
     {

@@ -90,12 +90,6 @@ public class Einfachergegner : Enemy
     
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.name == "Me" && harmlos == false)
-        {
-            //harmlos = true;
-            //StartCoroutine(waitsec());
-        }
-
         if (col.gameObject.tag == "Arrow" && pfeilscript.critschaden == false)
         {
             leben = leben - bsscript.damage;

@@ -31,7 +31,7 @@ public class Bogenschütze : Player
     void Start()
     {
         gespawnt = false;
-        spawnscript = GameObject.Find("Cube").GetComponent<Spawn>();
+        spawnscript = GameObject.Find("Spawn").GetComponent<Spawn>();
         timer = true;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
@@ -48,7 +48,7 @@ public class Bogenschütze : Player
         {
 
             gespawnt = true;
-                spawnscript.belohnugAussuchen();
+            spawnscript.belohnugAussuchen();
             
         }
     }
@@ -172,6 +172,7 @@ public class Bogenschütze : Player
         if(closestPlayer.name == "Test")
         {
             alleTot = true;
+
         }
     }
     IEnumerator zweiterAbschuss()
@@ -206,7 +207,11 @@ public class Bogenschütze : Player
             leben = leben - 100;
            
         }
-
+        if(col.gameObject.tag == "Schleimball")
+        {
+            leben = leben - 150;
+        }
+        //-------------Rand-----------------
         if(col.gameObject.name == "Rand1") 
         {
             linkeWand = true;
@@ -225,8 +230,6 @@ public class Bogenschütze : Player
         if (col.gameObject.name == "Rand4")
         {
             untereWand = true;
-           
-
         }
 
     }

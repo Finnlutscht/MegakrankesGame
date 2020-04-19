@@ -10,6 +10,7 @@ TagManager:
   - Wand
   - tot
   - Health
+  - Schleimball
   layers:
   - Default
   - TransparentFX

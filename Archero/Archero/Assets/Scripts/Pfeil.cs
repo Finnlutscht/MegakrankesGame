@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Pfeil : Geschoss
 {
+    private Bogenschütze bsscript;
     public bool geschossen = false;
     private Transform player;
     public bool critschaden;
@@ -17,8 +18,6 @@ public class Pfeil : Geschoss
     public bool freiesSchussfeld = true;
     private Vector2 zielPosition;
 
-    private Bogenschütze bogenschützenscript;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +27,7 @@ public class Pfeil : Geschoss
 
         damage = 100;
         player = GameObject.Find("Me").GetComponent<Transform>();
-        bogenschützenscript = GameObject.Find("Me").GetComponent<Bogenschütze>();
+        bsscript = GameObject.Find("Me").GetComponent<Bogenschütze>();
     }
 
     void FixedUpdate()
@@ -47,10 +46,10 @@ public class Pfeil : Geschoss
         }
         transform.position = Vector2.MoveTowards(transform.position, zielPosition, arrowspeed * Time.deltaTime);
 
-        /*if(Vector2.Distance(transform.position,zielPosition) == 0)
+        if(bsscript.alleTot == true)
         {
             Destroy(gameObject);
-        }*/
+        }
     }
     void OnCollisionEnter2D(Collision2D col)
     {
