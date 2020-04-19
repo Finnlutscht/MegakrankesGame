@@ -30,6 +30,7 @@ public class Bogenschütze : Player
     // Start is called before the first frame update
     void Start()
     {
+        leben = PlayerPrefs.GetFloat("leben");
         gespawnt = false;
         spawnscript = GameObject.Find("Spawn").GetComponent<Spawn>();
         timer = true;
@@ -44,12 +45,12 @@ public class Bogenschütze : Player
         {
             Destroy(gameObject);
         }
-        if(alleTot == true && gespawnt == false)
+        if (alleTot == true && gespawnt == false)
         {
 
             gespawnt = true;
             spawnscript.belohnugAussuchen();
-            
+
         }
     }
     void FixedUpdate()
@@ -59,9 +60,9 @@ public class Bogenschütze : Player
     }
     void bewegen()
     {
-            moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            moveVelocity = moveInput.normalized * speed;
-            rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        moveVelocity = moveInput.normalized * speed;
+        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
 
         if (linkeWand == true)
         {
@@ -152,7 +153,7 @@ public class Bogenschütze : Player
         else
         {
             bewegung = false;
-            
+
         }
     }
     void abschuss()
@@ -162,14 +163,14 @@ public class Bogenschütze : Player
         if (bewegung == false && timer == true && alleTot == false)
         {
             Instantiate(Arrowprefab, transform.position, Quaternion.identity);
-            for(int i = 0; i< mehrfachSchuss; i++)
+            for (int i = 0; i < mehrfachSchuss; i++)
             {
                 StartCoroutine(zweiterAbschuss());
             }
             timer = false;
-            StartCoroutine(waitsec());          
+            StartCoroutine(waitsec());
         }
-        if(closestPlayer.name == "Test")
+        if (closestPlayer.name == "Test")
         {
             alleTot = true;
 
@@ -205,27 +206,27 @@ public class Bogenschütze : Player
         if (col.gameObject.tag == "Enemy")
         {
             leben = leben - 100;
-           
+
         }
-        if(col.gameObject.tag == "Schleimball")
+        if (col.gameObject.tag == "Schleimball")
         {
             leben = leben - 150;
         }
         //-------------Rand-----------------
-        if(col.gameObject.name == "Rand1") 
+        if (col.gameObject.name == "Rand1")
         {
             linkeWand = true;
-           
+
         }
         if (col.gameObject.name == "Rand2")
         {
             obereWand = true;
-            
+
         }
         if (col.gameObject.name == "Rand3")
         {
             rechteWand = true;
-            
+
         }
         if (col.gameObject.name == "Rand4")
         {
@@ -233,9 +234,9 @@ public class Bogenschütze : Player
         }
 
     }
-    void OnCollisionExit2D (Collision2D excol)
+    void OnCollisionExit2D(Collision2D excol)
     {
-        if(excol.gameObject.name == "Rand1")
+        if (excol.gameObject.name == "Rand1")
         {
             linkeWand = false;
         }
@@ -281,7 +282,13 @@ public class Bogenschütze : Player
         leben = leben + 250;
     }
     public void ChangeScene(String sceneName)
-     {
-     Application.LoadLevel(sceneName);
-     }
+    {
+        Application.LoadLevel(sceneName);
+    }
+
+    /*void endSzene()
+    {
+        PlayerPrefs.SetFloat("leben", leben);
+    }
+*/
 }
