@@ -14,6 +14,7 @@ public class Einfachergegner : Enemy
     private bool laufen;
     private float zahl1;
     private float zahl2;
+    public GameObject EpPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class Einfachergegner : Enemy
         bewegen();
         if (leben < 1)
         {
+            Instantiate(EpPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -41,7 +43,7 @@ public class Einfachergegner : Enemy
     {
         if (laufen == true)
         {
-            if (Vector2.Distance(transform.position, target.position) > stoppingDistance)//enemystatsscript.leben > 0)
+            if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }

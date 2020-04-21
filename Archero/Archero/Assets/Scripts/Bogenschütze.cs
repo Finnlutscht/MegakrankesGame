@@ -47,10 +47,13 @@ public class Bogenschütze : Player
         }
         if (alleTot == true && gespawnt == false)
         {
-
             gespawnt = true;
             spawnscript.belohnugAussuchen();
-
+        }
+        if(EP == 500)
+        {
+            level++;
+            EP = 0;
         }
     }
     void FixedUpdate()
@@ -197,20 +200,28 @@ public class Bogenschütze : Player
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        //------------HealthBall---------------
         if (col.gameObject.tag == "Health")
         {
             leben = leben + 200;
             Destroy(col.gameObject);
         }
-
+        //---------Enemy---------------------
         if (col.gameObject.tag == "Enemy")
         {
             leben = leben - 100;
 
         }
+        //--------------Schleimball--------------
         if (col.gameObject.tag == "Schleimball")
         {
             leben = leben - 150;
+        }
+        //-------------EP---------------------
+        if(col.gameObject.tag == "EP")
+        {
+            EP = EP + 100;
+            Destroy(col.gameObject);
         }
         //-------------Rand-----------------
         if (col.gameObject.name == "Rand1")
@@ -276,15 +287,15 @@ public class Bogenschütze : Player
     {
         string healthstring = leben.ToString();
         GUI.Label(new Rect(1000, 10, 100, 30), healthstring);
+
+        string Levelstring = level.ToString();
+        GUI.Label(new Rect(200, 10, 100, 30), Levelstring);
     }
     public void addHealth()
     {
         leben = leben + 250;
     }
-    public void ChangeScene(String sceneName)
-    {
-        Application.LoadLevel(sceneName);
-    }
+    
 
     /*void endSzene()
     {

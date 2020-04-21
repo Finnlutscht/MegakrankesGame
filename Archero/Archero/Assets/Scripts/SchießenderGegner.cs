@@ -8,6 +8,7 @@ public class SchießenderGegner : Enemy
     private Bogenschütze bsscript;
     private bool freigabe;
     public GameObject SchleimballPrefab;
+    public GameObject EpPrefab;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class SchießenderGegner : Enemy
         abschuss();
         if (leben < 1)
         {
+            Instantiate(EpPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -50,7 +52,7 @@ public class SchießenderGegner : Enemy
     }
     IEnumerator warten()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(1);
         }

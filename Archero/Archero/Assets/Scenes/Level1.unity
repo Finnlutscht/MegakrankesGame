@@ -682,6 +682,8 @@ MonoBehaviour:
   leben: 1000
   speed: 10
   stoppingDistance: 0
+  EP: 0
+  level: 0
   bewegung: 0
   Arrowprefab: {fileID: 527918102402932682, guid: 7949f92f1600ca74b9a4bf88d585292e,
     type: 3}
@@ -832,7 +834,7 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   zahl1: 0
   zahl2: 0
-  EinfacherGegnerAnzahl: 5
+  EinfacherGegnerAnzahl: 10
   "Schie\xDFendeGegnerAnzahl": 0
   HealthAnzahl: 2
 --- !u!65 &968721629

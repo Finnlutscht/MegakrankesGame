@@ -150,3 +150,5 @@ MonoBehaviour:
   harmlos: 0
   SchleimballPrefab: {fileID: 7666427231139205465, guid: e216138b66e65e440834edc4e9835d41,
     type: 3}
+  EpPrefab: {fileID: 3115969394297835844, guid: 4b73d516787fb564e9da4f553d935845,
+    type: 3}

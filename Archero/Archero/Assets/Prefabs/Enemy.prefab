@@ -148,3 +148,5 @@ MonoBehaviour:
   speed: 7
   stoppingDistance: 0.5
   harmlos: 0
+  EpPrefab: {fileID: 3115969394297835844, guid: 4b73d516787fb564e9da4f553d935845,
+    type: 3}

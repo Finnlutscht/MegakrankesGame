@@ -8,6 +8,8 @@ public abstract class Player : MonoBehaviour
     public float leben;
     public float speed;
     public float stoppingDistance;
+    public float EP;
+    public int level;
 
     // Start is called before the first frame update
     void Start()
