@@ -27,6 +27,7 @@ public class Einfachergegner : Enemy
         target = GameObject.Find("Me").GetComponent<Transform>();
         harmlos = false;
     }
+    
 
     // Update is called once per frame
     void FixedUpdate()

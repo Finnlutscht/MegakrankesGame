@@ -294,6 +294,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9098060552933314252, guid: 578f9ae634d718942b976d6c58e01122,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: addHealth1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f9ae634d718942b976d6c58e01122, type: 3}
 --- !u!224 &4045231098490985838 stripped

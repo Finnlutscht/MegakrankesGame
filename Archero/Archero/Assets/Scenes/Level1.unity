@@ -834,7 +834,7 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   zahl1: 0
   zahl2: 0
-  EinfacherGegnerAnzahl: 10
+  EinfacherGegnerAnzahl: 5
   "Schie\xDFendeGegnerAnzahl": 0
   HealthAnzahl: 2
 --- !u!65 &968721629

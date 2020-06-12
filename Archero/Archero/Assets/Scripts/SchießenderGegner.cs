@@ -17,7 +17,7 @@ public class SchießenderGegner : Enemy
         bsscript = GameObject.Find("Me").GetComponent<Bogenschütze>();
 
     }
-
+    
     void FixedUpdate()
     {
         abschuss();
